@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>coo-ki'</title>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500&family=Manrope:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --green:#3E5641; --clay:#A24936; --orange:#D36135; --cream:#FFFDD0;
+  --bg:#D36135; --surface:#FFFBE8; --ink:#2A140C; --muted:#5C6B5E; --line:rgba(255,253,208,.4);
+  --video-bg:#3E5641; --video-ink:#FFFDD0;
+  box-sizing:border-box; padding-top:env(safe-area-inset-top,0px); padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:'DM Sans',system-ui,sans-serif;font-size:17px;line-height:1.65}
+h1,h2,h3,.logo{font-family:'Manrope','DM Sans',system-ui,sans-serif;margin:0}
+.wrap{max-width:900px;margin:0 auto;padding:0 24px}
+.blob{position:absolute;border-radius:62% 38% 55% 45% / 50% 60% 40% 50%;pointer-events:none}
+
+/* HERO */
+.hero{position:relative;overflow:hidden;background:var(--cream);padding:72px 0 84px}
+.hero .wrap{position:relative;z-index:1}
+.tag{display:inline-block;background:var(--green);color:var(--clay);font-size:14px;font-weight:500;padding:6px 16px;border-radius:99px;margin-bottom:28px}
+.logo{font-weight:800;font-size:clamp(76px,17vw,168px);line-height:.9;letter-spacing:-.03em;color:#2F4632}
+.logo b{color:var(--clay);font-weight:800}
+.slogan{letter-spacing:.2em;font-size:14px;margin:18px 0 36px;color:var(--ink);font-weight:500}
+.lead{font-family:'Manrope',sans-serif;font-weight:600;font-size:clamp(20px,3vw,27px);line-height:1.4;max-width:600px;margin:0;color:var(--ink)}
+.b1{width:360px;height:300px;background:var(--clay);animation:float 9s ease-in-out infinite;top:-90px;right:-110px;transform:rotate(18deg)}
+.b2{width:280px;height:210px;background:var(--green);animation:float 11s ease-in-out infinite reverse;top:90px;right:-60px;transform:rotate(-24deg);opacity:.95}
+.b3{width:200px;height:150px;background:var(--orange);animation:float 13s ease-in-out infinite;bottom:-60px;left:-60px;transform:rotate(30deg)}
+
+@keyframes float{0%,100%{translate:0 0}50%{translate:-18px 22px}}
+.band{background:var(--clay);color:var(--cream);overflow:hidden;white-space:nowrap;padding:16px 0;transform:rotate(-1.2deg);margin:-14px -10px 0;position:relative;z-index:2}
+.track{display:inline-flex;gap:36px;animation:slide 28s linear infinite;font-family:'Manrope',sans-serif;font-weight:800;font-size:22px}
+.track span{display:inline-flex;align-items:center;gap:36px}
+.track i{width:14px;height:14px;background:var(--orange);border-radius:60% 40% 55% 45%;display:inline-block}
+@keyframes slide{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.blob,.track{animation:none}}
+.video{padding-top:80px!important;margin-top:-30px}
+/* VIDEO */
+.video{background:var(--video-bg);color:var(--video-ink);padding:64px 0}
+.video h2{font-size:28px;margin-bottom:24px}
+.player{position:relative;aspect-ratio:16/9;border-radius:28px 28px 120px 28px;background:rgba(255,253,208,.07);border:2px dashed var(--orange);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:24px;overflow:hidden}
+.play{width:76px;height:76px;border-radius:50%;background:var(--orange);display:grid;place-items:center}
+.play svg{width:32px;height:32px;fill:var(--cream);margin-left:4px}
+.player span{font-weight:500;font-size:14px;letter-spacing:.04em}
+
+/* SECTIONS */
+section.s{padding:72px 0;border-bottom:1px solid var(--line)}
+h2.t{font-size:clamp(28px,5vw,40px);line-height:1.15;letter-spacing:-.01em;margin-bottom:28px;color:var(--cream);position:relative;padding-bottom:16px}
+h2.t::after{content:"";position:absolute;left:0;bottom:0;width:64px;height:8px;border-radius:99px;background:var(--cream)}
+.prob{display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:40px;align-items:start}
+.stat{background:var(--green);color:var(--cream);padding:28px 24px;border-radius:40% 60% 55% 45% / 55% 45% 55% 45%;text-align:center;aspect-ratio:1/1;display:flex;flex-direction:column;justify-content:center}
+.stat strong{font-family:'Manrope',sans-serif;font-size:42px;line-height:1;font-weight:800}
+.stat small{font-size:14px;margin-top:8px;line-height:1.35}
+.prob>div:last-child{background:var(--surface);color:#2B3A2D;padding:30px;border-radius:28px 28px 28px 90px}
+.prob p{margin:0 0 18px;max-width:62ch}.prob p:last-child{margin:0}
+.prob em,.lead em{font-style:italic}
+
+/* PROCESO */
+.steps{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px;counter-reset:s}
+.step{color:#2B3A2D;background:var(--surface);border:1px solid var(--line);padding:28px 24px 28px;border-radius:24px 24px 24px 80px;position:relative}
+.step:nth-child(2){border-radius:24px 80px 24px 24px;margin-top:28px}
+.step::before{counter-increment:s;content:counter(s);display:grid;place-items:center;width:44px;height:44px;border-radius:50%;background:var(--green);color:var(--cream);font-family:'Manrope',sans-serif;font-weight:800;margin-bottom:16px}
+.step:nth-child(2)::before{background:var(--clay)}
+.step:nth-child(3)::before{background:var(--orange)}
+.step h3{font-size:20px;margin-bottom:8px}
+.step p{margin:0;font-size:15.5px;color:var(--muted)}
+
+/* NUTRICIÓN */
+.facts{list-style:none;margin:0;padding:0;display:grid;gap:16px}
+.facts li{color:#2B3A2D;display:flex;gap:20px;align-items:flex-start;background:var(--surface);border:1px solid var(--line);border-radius:22px;padding:22px 24px}
+.dot{flex:none;width:44px;height:44px;border-radius:58% 42% 50% 50% / 50% 55% 45% 50%}
+.facts li:nth-child(1) .dot{background:var(--green)}
+.facts li:nth-child(2) .dot{background:var(--orange)}
+.facts li:nth-child(3) .dot{background:var(--cream)}
+.facts p{margin:0;max-width:60ch}
+
+/* VISUAL */
+.gallery{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+.ph{color:#2B3A2D;aspect-ratio:4/3;border:2px dashed var(--cream);border-radius:30px 30px 30px 90px;background:var(--surface);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;text-align:center;padding:20px}
+.gallery figure:nth-child(2) .ph{border-radius:30px 90px 30px 30px;border-color:var(--clay)}
+.ph svg{width:44px;height:44px;stroke:var(--orange);fill:none}
+.ph span{font-size:13px;font-weight:500;letter-spacing:.03em}
+figcaption{font-size:14px;color:var(--ink);margin-top:10px}
+figure{margin:0}
+
+footer{background:var(--green);color:var(--cream);padding:48px 0 40px;position:relative;overflow:hidden}
+footer .wrap{position:relative;z-index:1}
+footer .logo{color:var(--cream);font-size:40px;margin-bottom:14px}
+footer .logo b{color:var(--orange)}
+footer p{margin:0;font-size:15px}
+footer p+p{opacity:.8;margin-top:4px;font-size:14px}
+.fb{width:220px;height:160px;background:var(--orange);right:-50px;bottom:-60px;transform:rotate(-20deg)}
+
+@media (max-width:720px){
+  .prob{grid-template-columns:1fr;gap:28px}
+  .stat{aspect-ratio:auto;border-radius:36px;max-width:240px}
+  .steps,.gallery{grid-template-columns:1fr}
+  .step:nth-child(2){margin-top:0}
+  .b1{width:240px;height:200px;right:-100px}.b2{width:180px;height:140px;top:70px;right:-70px}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="blob b1"></div><div class="blob b2"></div><div class="blob b3"></div>
+  <div class="wrap">
+    <span class="tag">Wireframe / Prácticum II Equipo 5D</span>
+    <h1 class="logo" aria-label="coo-ki'">COO<b>KI’</b></h1>
+    <p class="slogan">Nutrición real en cada mordida</p>
+    <p class="lead">Galletas artesanales elaboradas con harina de <em>Tenebrio molitor</em> y tubérculos tradicionales mayas.</p>
+  </div>
+</header>
+
+<div class="band" aria-hidden="true"><div class="track"><span>Camote<i></i></span><span>Yuca<i></i></span><span>Makal<i></i></span><span>Tenebrio molitor<i></i></span><span>7 g de proteína<i></i></span><span>Hecho en Yucatán<i></i></span><span>Camote<i></i></span><span>Yuca<i></i></span><span>Makal<i></i></span><span>Tenebrio molitor<i></i></span><span>Proteína real<i></i></span><span>Hecho en Yucatán<i></i></span><span>Camote<i></i></span><span>Yuca<i></i></span><span>Makal<i></i></span><span>Tenebrio molitor<i></i></span><span>Proteína real<i></i></span><span>Hecho en Yucatán<i></i></span><span>Camote<i></i></span><span>Yuca<i></i></span><span>Makal<i></i></span><span>Tenebrio molitor<i></i></span><span>Proteína real<i></i></span><span>Hecho en Yucatán<i></i></span></div></div>
+<main>
+  <div class="video">
+    <div class="wrap">
+      <h2>Video de Elaboración / Proceso</h2>
+      <div class="player">
+        <div class="play"><svg viewBox="0 0 24 24"><path d="M7 4.5v15a1 1 0 001.5.86l12.5-7.5a1 1 0 000-1.72L8.5 3.64A1 1 0 007 4.5z"/></svg></div>
+        <span>ESPACIO RESERVADO PARA VIDEO DE ELABORACIÓN O EXPLICACIÓN</span>
+      </div>
+    </div>
+  </div>
+
+  <section class="s">
+    <div class="wrap">
+      <h2 class="t">Problemática y Oportunidad</h2>
+      <div class="prob">
+        <div class="stat"><strong>15–25%</strong><small>de los tubérculos locales se pierde como merma</small></div>
+        <div>
+          <p>Entre el <strong>15% y el 25%</strong> de los tubérculos locales (camote, yuca y makal) se pierden como merma (cáscaras, corteza y pulpa) durante la cosecha en la península de Yucatán, terminando habitualmente en vertederos.</p>
+          <p>La oportunidad radica en utilizar estas mermas como sustrato orgánico para la crianza eficiente de <em>Tenebrio molitor</em>, transformando un residuo regional en una fuente de proteína sustentable de alta calidad sin competir con la ganadería convencional.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2 class="t">Ciclo y Proceso de Producción Circular</h2>
+      <div class="steps">
+        <div class="step"><h3>Bioconversión</h3><p>Las larvas consumen los residuos de camote, yuca y makal, transformándolos en biomasa proteica y generando frass.</p></div>
+        <div class="step"><h3>Procesamiento</h3><p>Ayuno, lavado, inactivación térmica, deshidratación y molienda fina para obtener harina de insecto sin neofobia.</p></div>
+        <div class="step"><h3>Horneado</h3><p>Mezcla homogénea con harinas de tubérculos mayas y horneado a 180°C para lograr una galleta crocante.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="s">
+    <div class="wrap">
+      <h2 class="t">Perfil Nutricional Destacado</h2>
+      <ul class="facts">
+        <li><span class="dot"></span><p><strong>52.4% de proteína cruda</strong> promedio en materia seca aportada por el <em>Tenebrio molitor</em>, con aminoácidos esenciales (leucina, valina, lisina).</p></li>
+        <li><span class="dot"></span><p><strong>Camote, yuca y makal:</strong> Aporte de carbohidratos complejos, fibra dietética y almidones resistentes que mejoran la microbiota y regulan el índice glucémico.</p></li>
+        <li><span class="dot"></span><p><strong>Sin aditivos sintéticos:</strong> Libre de colorantes artificiales, con sabor y color natural derivados de la raíz del camote.</p></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="s" style="border-bottom:0">
+    <div class="wrap">
+      <h2 class="t">Exploración Visual (Wireframe de Empaque y Producto)</h2>
+      <div class="gallery">
+        <figure>
+          <div class="ph">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>ESPACIO RESERVADO: GALLETA HORNEADA</span>
+          </div>
+          <figcaption>Detalle de textura rugosa y color dorado natural</figcaption>
+        </figure>
+        <figure>
+          <div class="ph">
+            <svg viewBox="0 0 24 24" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/></svg>
+            <span>ESPACIO RESERVADO FOTOGRAFÍA DEL EMPAQUE FINAL</span>
+          </div>
+          <figcaption>Empaque final</figcaption>
+        </figure>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="blob fb"></div>
+  <div class="wrap">
+    <div class="logo">COO<b>KI’</b></div>
+    <p>Prácticum II</p>
+    <p>Equipo 5D: Santiago Sánchez, José Pablo Visoso, Said Wabi, Rodrigo Cruz.</p>
+  </div>
+</footer>
+
+</body>
+</html>
